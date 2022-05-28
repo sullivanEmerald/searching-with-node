@@ -35,20 +35,14 @@ const server = http.createServer((req, res) => {
             break;
             
         case '/api':
-            let user = 'unknown'
-            let status = 'unknown'
-            let currentOccupation = 'unknown'
+            let fileResult = "Enter your flip here"
 
-            if(params['student'] == 'sullivan'){
-                user = 'sullivan'
-                status = 'Amazon Dveloper'
-                currentOccupation = 'Developer'
+            if(params['student'] == 'flip'){
+                fileResult = Math.random() < .5 ? 'head' : 'tail'
             } 
             res.writeHead(200, {'content-Type' : 'application/json'})
             const objToJason = {
-                name: user,
-                status: status,
-                currentOccupation: currentOccupation
+                name: fileResult
             }
 
             res.end(JSON.stringify(objToJason));
